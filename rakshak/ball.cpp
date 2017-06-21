@@ -6,6 +6,7 @@
 # include <iostream>
 # include <unistd.h>
 
+
 using namespace cv;
 using namespace std;
 
@@ -33,7 +34,7 @@ int main(void){
 
 
         cvtColor(input, img, COLOR_BGR2GRAY);
-        
+
         threshold(img, img, 150, 255, THRESH_BINARY);
 
         //imshow("hey", img);
@@ -73,7 +74,7 @@ int main(void){
             cout<<"loopcount :  "<<loopcount<<endl;
             break;
 
-        } 
+        }
         //cout<<"yo"<<endl;
     }
     destroyAllWindows();

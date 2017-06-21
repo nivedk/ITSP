@@ -20,9 +20,7 @@ int main(void){
     cap>>input;
 
     Vec2i position;
-    int loopcount;
     while(true){
-        loopcount++;
         cap >> input;
         if(input.empty()){
             cout << "can not open " << endl;
@@ -33,7 +31,7 @@ int main(void){
 
 
         cvtColor(input, img, COLOR_BGR2GRAY);
-        
+
         threshold(img, img, 150, 255, THRESH_BINARY);
 
         //imshow("hey", img);
@@ -42,9 +40,12 @@ int main(void){
 
         medianBlur(img, img, 17);
 
+        //imshow("hey", img);
+        //waitKey(0);
+
 
         //Check out the fourth parameter, not too clear about it
-        HoughCircles(img, circles, CV_HOUGH_GRADIENT, 2, 190, 100, 50,60, 200 );
+        HoughCircles(img, circles, CV_HOUGH_GRADIENT, 2, 190, 100, 50,70, 200 );
         //position.push_back(Vec2i(circles[0][0], circles[0][1]));
 
         /*
@@ -69,11 +70,7 @@ int main(void){
         //cout<<"yo"<<endl;
         //destroyAllWindows();
         //cout<<"hello"<<endl;
-        if(waitKey(1)>=0){
-            cout<<"loopcount :  "<<loopcount<<endl;
-            break;
-
-        } 
+        if(waitKey(1)>=0) break;
         //cout<<"yo"<<endl;
     }
     destroyAllWindows();
